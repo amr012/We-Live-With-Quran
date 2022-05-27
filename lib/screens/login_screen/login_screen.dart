@@ -3,13 +3,14 @@ import 'package:get/get.dart';
 import 'package:welivewithquran/custom_widgets/custom_social_container.dart';
 import 'package:welivewithquran/screens/test_screen.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         backgroundColor: Color(0xff48B9E5),
         leading: Icon(Icons.list_outlined,color: Colors.black,),
         title: Text("لنحيا بالقران",style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.w700),),
@@ -22,8 +23,8 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 40,horizontal: 20),
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30)
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(30)
               ),
               child: Column(
                 children: [
@@ -42,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                   CustomSocialContainer(title: "تسجيل الدخول عبر فيسبوك",
                     containerColor: Color(0xff507DC0),
                     onTap: (){
-                    Get.to(()=>TestScreen());
+                      Get.to(()=>TestScreen());
                     },
                   ),
                   Padding(
@@ -156,37 +157,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          currentIndex: 0,
-          onTap: (index) {
-            // checkCurrentIndex(index);
-          },
-          // selectedItemColor: mainColor,
-          items: [
-            BottomNavigationBarItem(
-              label: "الرئيسية",
-              icon: Icon(Icons.domain,color: Color(0xff305F71),),
-              // activeIcon: SvgPicture.asset('assets/icons/explore_colored.svg',
-            ),
-            BottomNavigationBarItem(
-              label: "المكتبة",
-              icon: Icon(Icons.book,color: Color(0xff305F71),),
-              // activeIcon: SvgPicture.asset('assets/icons/explore_colored.svg',
-            ),
-            BottomNavigationBarItem(
-              label: "المفضلة",
-              icon: Icon(Icons.bookmark,color: Color(0xff305F71),),
-              // activeIcon: SvgPicture.asset('assets/icons/explore_colored.svg',
-            ),
-            BottomNavigationBarItem(
-              label: "الاعدادات",
-              icon: Icon(Icons.settings,color: Color(0xff305F71),),
-              // activeIcon: SvgPicture.asset('assets/icons/explore_colored.svg',
-            ),
-
-
-          ]),
 
     );
   }
