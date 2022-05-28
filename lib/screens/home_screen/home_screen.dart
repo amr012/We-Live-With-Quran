@@ -5,7 +5,9 @@ import 'package:get/get.dart';
 import 'package:welivewithquran/constants/colors.dart';
 import 'package:welivewithquran/custom_widgets/custom_social_container.dart';
 import 'package:welivewithquran/screens/favourite_screen/favourite_screen.dart';
+import 'package:welivewithquran/screens/library/library_screen.dart';
 import 'package:welivewithquran/screens/main_screen/main_screen.dart';
+import 'package:welivewithquran/screens/settings/settings_screen.dart';
 import 'package:welivewithquran/screens/test_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,9 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
    List screen = [
      MainScreen(),
-     MainScreen(),
+     LibraryScreen(),
      FavouriteScreen(),
-     MainScreen(),
+     SettingsScreen(),
    ];
 
    checkCurrentIndex(int index) {

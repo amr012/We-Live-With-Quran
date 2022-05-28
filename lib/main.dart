@@ -1,5 +1,5 @@
 import 'dart:ui';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:welivewithquran/custom_widgets/custom_social_container.dart';
@@ -15,10 +15,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return  GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      locale: Locale("ar"),
-      home: HomeScreen(),
+    return  ScreenUtilInit(
+      designSize: Size(390, 844),
+      builder : (context,child)=> GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        locale: Locale("ar"),
+        home: child,
+      ),
+      child: HomeScreen(),
     );
   }
 }
