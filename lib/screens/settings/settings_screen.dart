@@ -117,6 +117,9 @@ class SettingsScreen  extends StatelessWidget {
                   CustomSettingItem(
                     image: "assets/icons/exit.svg",
                     title: "خروج",
+                    onPress: (){
+                      logoutDialog(context);
+                    },
                   )
                 ],
               ),
@@ -125,5 +128,71 @@ class SettingsScreen  extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  logoutDialog(BuildContext context){
+    showDialog(context: context, builder: (context){
+      return Dialog(
+        shape: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: BorderSide(color: blueColor)
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            color: blueColor,
+            borderRadius: BorderRadius.circular(15)
+          ),
+          height: 140,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              CustomText(
+                text: "هل تريد الخروج من التطبيق ؟",
+                fontSize: 17.sp,
+                color: Colors.white,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: (){},
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20,vertical: 2),
+                      decoration: BoxDecoration(
+                        color: backgroundColor,
+                        borderRadius: BorderRadius.circular(15)
+                      ),
+                      child: CustomText(
+                        text: "نعم",
+                        color: blueColor,
+                        fontSize: 14.sp,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 15,),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 25,vertical: 2),
+                      decoration: BoxDecoration(
+                        color: backgroundColor,
+                        borderRadius: BorderRadius.circular(15)
+                      ),
+                      child: CustomText(
+                        text: "لا",
+                        color: blueColor,
+                        fontSize: 14.sp,
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+      );
+    });
   }
 }
