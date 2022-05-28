@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:welivewithquran/constants/colors.dart';
 import 'package:welivewithquran/custom_widgets/custom_text.dart';
+import 'package:welivewithquran/screens/details/details_screen.dart';
 
 class LibraryScreen extends StatelessWidget {
    LibraryScreen({Key? key}) : super(key: key);
@@ -43,25 +45,30 @@ class LibraryScreen extends StatelessWidget {
                       childAspectRatio: .7
                   ),
                   itemBuilder: (context,index){
-                    return Column(
-                      children: [
-                        Container(
-                          height: 30.h,
-                          width: 100.w,
-                          decoration: BoxDecoration(
-                            color: mainColor,
-                            borderRadius: BorderRadius.circular(10),
+                    return GestureDetector(
+                      onTap: (){
+                        Get.to(()=>DetailsScreen());
+                      },
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 30.h,
+                            width: 100.w,
+                            decoration: BoxDecoration(
+                              color: mainColor,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Center(child: Text("سورة الفاتحة",style: TextStyle(color: Colors.white,
+                            fontSize: 16.sp),)),
                           ),
-                          child: Center(child: Text("سورة الفاتحة",style: TextStyle(color: Colors.white,
-                          fontSize: 16.sp),)),
-                        ),
-                        SizedBox(height: 5.h,),
-                        Container(
-                          height: 200.h,
-                          width : 170.w,
-                          child: Image.asset(images[index],fit: BoxFit.fill,),
-                        ),
-                      ],
+                          SizedBox(height: 5.h,),
+                          Container(
+                            height: 200.h,
+                            width : 170.w,
+                            child: Image.asset(images[index],fit: BoxFit.fill,),
+                          ),
+                        ],
+                      ),
                     );
 
                   }),

@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:welivewithquran/constants/colors.dart';
+import 'package:welivewithquran/screens/details/details_screen.dart';
 
 class MainScreen extends StatelessWidget {
    MainScreen({Key? key}) : super(key: key);
@@ -118,15 +120,20 @@ class MainScreen extends StatelessWidget {
                     itemBuilder: (context,index){
                       return Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 120,
-                            width: 110,
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  fit: BoxFit.fill,
-                                  image: AssetImage(images[index]),
-                                )
+                          child: GestureDetector(
+                            onTap: (){
+                              Get.to(()=>DetailsScreen());
+                            },
+                            child: Container(
+                              height: 120,
+                              width: 110,
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: AssetImage(images[index]),
+                                  )
 
+                              ),
                             ),
                           ));
                     }),
