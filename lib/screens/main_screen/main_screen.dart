@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:welivewithquran/constants/colors.dart';
 
@@ -12,6 +13,14 @@ class MainScreen extends StatelessWidget {
      "assets/images/sura_image3.png",
      "assets/images/sura_image2.png",
    ];
+
+   List<Widget> carouselImages = [
+     Image.asset("assets/images/sura_image3.png"),
+     Image.asset("assets/images/sura_image2.png"),
+     Image.asset("assets/images/sura_image3.png"),
+     Image.asset("assets/images/sura_image2.png"),
+   ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -52,24 +61,23 @@ class MainScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 15),
               child: SizedBox(
                 height: 130,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 5,
-                    itemBuilder: (context,index){
-                      return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 120,
-                            width: 90,
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  fit: BoxFit.fill,
-                                  image: AssetImage("assets/images/sura_image2.png"),
-                                )
-
-                            ),
-                          ));
-                    }),
+                width: double.infinity,
+                child:  CarouselSlider.builder(
+                  itemCount: images.length,
+                  options: CarouselOptions(
+                    viewportFraction: .3,
+                    autoPlay: true,
+                    aspectRatio: 2.0,
+                    enlargeCenterPage: true,
+                  ),
+                  itemBuilder: (context, index, realIdx) {
+                    return Container(
+                      child: Center(
+                          child: Image.asset(images[index],
+                              fit: BoxFit.fill, )),
+                    );
+                  },
+                ),
               ),
             ),
             Padding(

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:welivewithquran/constants/colors.dart';
 import 'package:welivewithquran/custom_widgets/custom_setting_item.dart';
 import 'package:welivewithquran/custom_widgets/custom_text.dart';
+import 'package:welivewithquran/screens/contact_us/contact_us_screen.dart';
 
 class SettingsScreen  extends StatelessWidget {
   const SettingsScreen ({Key? key}) : super(key: key);
@@ -54,7 +56,9 @@ class SettingsScreen  extends StatelessWidget {
                   SizedBox(height: 4,),
                   CustomSettingItem(
                     title: "اتصل بنا",
-                    onPress: (){},
+                    onPress: (){
+                      Get.to(()=>ContactUsScreen());
+                    },
                     image: "assets/icons/mobile.svg",
                   ),
                   SizedBox(height: 4,),

@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
               fontWeight: FontWeight.w700),),
           centerTitle: true,
         ),
-        backgroundColor: Color(0xFFEAF9FF),
+        backgroundColor: backgroundColor,
           bottomNavigationBar: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
               currentIndex: currentIndex,
