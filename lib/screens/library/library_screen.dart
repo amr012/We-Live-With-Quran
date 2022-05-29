@@ -29,10 +29,10 @@ class LibraryScreen extends StatelessWidget {
       ),
       child: Column(
         children: [
-          SizedBox(height: 70,),
+          SizedBox(height: 80.h,),
           CustomText(
             text: "المكتبة",
-            fontSize: 24,
+            fontSize: 24.sp,
             color: mainColor,
           ),
           Expanded(

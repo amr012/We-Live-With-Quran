@@ -34,7 +34,7 @@ class CustomSettingItem extends StatelessWidget {
                   CustomText(
                     text: title!,
                     color: blueColor,
-
+                    fontSize: 17.sp,
                   )
                 ],
               ),

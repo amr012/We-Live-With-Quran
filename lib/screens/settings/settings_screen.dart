@@ -84,6 +84,7 @@ class SettingsScreen  extends StatelessWidget {
                           CustomText(
                             text: "تفعيل الاشعارات",
                             color: blueColor,
+                            fontSize: 17.sp,
 
                           )
                         ],
@@ -107,6 +108,7 @@ class SettingsScreen  extends StatelessWidget {
                           CustomText(
                             text: "الوضع الليلي",
                             color: blueColor,
+                            fontSize: 17.sp,
 
                           )
                         ],

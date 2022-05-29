@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:welivewithquran/constants/colors.dart';
@@ -40,12 +41,12 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,
-          toolbarHeight: 80,
+          toolbarHeight: 85.h,
           actions: [
             // SvgPicture.asset("assets/icons/appbar_icon.svg")
           ],
-          leading: Icon(Icons.list_outlined,color: mainColor,size: 28),
-          title: Text("لنحيا بالقران",style: TextStyle(fontSize: 20,color: mainColor,
+          leading: Icon(Icons.list_outlined,color: mainColor,size: 30.h),
+          title: Text("لنحيا بالقران",style: TextStyle(fontSize: 24.sp,color: mainColor,
               fontWeight: FontWeight.w700),),
           centerTitle: true,
         ),
@@ -53,6 +54,8 @@ class _HomeScreenState extends State<HomeScreen> {
           bottomNavigationBar: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
               currentIndex: currentIndex,
+              unselectedFontSize: 15.sp,
+              selectedFontSize: 16.sp,
               onTap: (index) {
                 checkCurrentIndex(index);
               },

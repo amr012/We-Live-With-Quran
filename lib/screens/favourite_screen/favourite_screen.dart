@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:welivewithquran/constants/colors.dart';
 import 'package:welivewithquran/custom_widgets/custom_text.dart';
 
@@ -29,10 +30,10 @@ class FavouriteScreen extends StatelessWidget {
         ),
       child:Column(
         children: [
-          SizedBox(height: 70,),
+          SizedBox(height: 80.h,),
           CustomText(
             text: "المفضلة",
-            fontSize: 24,
+            fontSize: 24.sp,
             color: mainColor,
           ),
           Expanded(
@@ -48,7 +49,7 @@ class FavouriteScreen extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    height: 110,
+                    height: 110.h,
                     child: Image.asset(images[index],fit: BoxFit.fill,),
                   ),
                 );
