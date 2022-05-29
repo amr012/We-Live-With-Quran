@@ -41,7 +41,10 @@ class _HomeScreenState extends State<HomeScreen> {
           elevation: 0,
           backgroundColor: Colors.transparent,
           toolbarHeight: 80,
-          leading: Icon(Icons.list_outlined,color: Colors.black,),
+          actions: [
+            // SvgPicture.asset("assets/icons/appbar_icon.svg")
+          ],
+          leading: Icon(Icons.list_outlined,color: mainColor,size: 28),
           title: Text("لنحيا بالقران",style: TextStyle(fontSize: 20,color: mainColor,
               fontWeight: FontWeight.w700),),
           centerTitle: true,

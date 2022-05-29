@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:welivewithquran/custom_widgets/custom_social_container.dart';
 import 'package:welivewithquran/screens/home_screen/home_screen.dart';
+import 'package:welivewithquran/screens/splash/splash_screen.dart';
 
 void main() {
   runApp( MyApp());
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         locale: Locale("ar"),
         home: child,
       ),
-      child: HomeScreen(),
+      child: SplashScreen(),
     );
   }
 }
