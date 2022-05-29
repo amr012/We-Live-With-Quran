@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:welivewithquran/constants/colors.dart';
 import 'package:welivewithquran/custom_widgets/custom_text.dart';
+import 'package:welivewithquran/screens/read_book/read_book_screen.dart';
 
 class DetailsScreen extends StatelessWidget {
    DetailsScreen({Key? key}) : super(key: key);
@@ -160,17 +162,22 @@ class DetailsScreen extends StatelessWidget {
                             ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                height: 50.h,
-                                decoration: BoxDecoration(
-                                    color: mainColor,
-                                    borderRadius: BorderRadius.circular(10)
-                                ),
-                                child: Center(
-                                  child: CustomText(
-                                    text: "قراءة الكتاب",
-                                    fontSize: 18.sp,
-                                    color: Colors.white,
+                              child: GestureDetector(
+                                onTap: (){
+                                  Get.to(()=>ReadBookScreen());
+                                },
+                                child: Container(
+                                  height: 50.h,
+                                  decoration: BoxDecoration(
+                                      color: mainColor,
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
+                                  child: Center(
+                                    child: CustomText(
+                                      text: "قراءة الكتاب",
+                                      fontSize: 18.sp,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),
