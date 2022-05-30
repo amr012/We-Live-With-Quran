@@ -24,7 +24,7 @@ class SplashScreen extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: (){
-                Get.to(()=>HomeScreen());
+                Get.offAll(()=>HomeScreen());
               },
                 child: SvgPicture.asset("assets/icons/splash_button.svg")),
             SizedBox(height: 50.h,)

@@ -47,7 +47,9 @@ class LibraryScreen extends StatelessWidget {
                   itemBuilder: (context,index){
                     return GestureDetector(
                       onTap: (){
-                        Get.to(()=>DetailsScreen());
+                        // Get.to(()=>DetailsScreen());
+                        Navigator.of(context).push(_createRoute());
+
                       },
                       child: Column(
                         children: [
@@ -78,4 +80,22 @@ class LibraryScreen extends StatelessWidget {
       ),
     );
   }
+   Route _createRoute() {
+     return PageRouteBuilder(
+       pageBuilder: (context, animation, secondaryAnimation) =>  DetailsScreen(),
+       transitionsBuilder: (context, animation, secondaryAnimation, child) {
+         const begin = Offset(1.0, 1.0);
+         const end = Offset.zero;
+         const curve = Curves.ease;
+
+         var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+         return SlideTransition(
+           position: animation.drive(tween),
+           child: child,
+         );
+       },
+     );
+   }
+
 }

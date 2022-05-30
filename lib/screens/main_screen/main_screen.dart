@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:welivewithquran/constants/colors.dart';
 import 'package:welivewithquran/screens/details/details_screen.dart';
@@ -38,11 +39,11 @@ class MainScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 80,),
+            SizedBox(height: 90.h,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30.0),
               child: Container(
-                height: 50,
+                height: 55.h,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(15)
@@ -53,6 +54,7 @@ class MainScreen extends StatelessWidget {
                     decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: "أبحث هنا",
+                        hintStyle: TextStyle(fontSize: 16.sp),
                         suffixIcon: Icon(Icons.search)
                     ),
                   ),
@@ -62,7 +64,7 @@ class MainScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 15),
               child: SizedBox(
-                height: 130,
+                height: 170.h,
                 width: double.infinity,
                 child:  CarouselSlider.builder(
                   itemCount: images.length,
@@ -84,10 +86,10 @@ class MainScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30.0,vertical: 8),
-              child: Text("الاقسام",style: TextStyle(fontSize: 24,color: mainColor,fontWeight: FontWeight.w700),),
+              child: Text("الاقسام",style: TextStyle(fontSize: 24.sp,color: mainColor,fontWeight: FontWeight.w700),),
             ),
             SizedBox(
-              height: 45,
+              height: 45.h,
               child: ListView.builder(
                   itemCount: 5,
                   scrollDirection: Axis.horizontal,
@@ -95,25 +97,26 @@ class MainScreen extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.all(2.0),
                       child: Container(
-                        height: 40,
-                        width: 120,
+                        height: 40.h,
+                        width: 120.w,
                         decoration: BoxDecoration(
                           color: mainColor,
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Center(child: Text("القران الكريم",style: TextStyle(color: Colors.white),)),
+                        child: Center(child: Text("القران الكريم",style: TextStyle(color: Colors.white,
+                        fontSize: 15.sp),)),
                       ),
                     );
                   }),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30.0,vertical: 15),
-              child: Text("المضاف أخيراً",style: TextStyle(fontSize: 24,color: mainColor,fontWeight: FontWeight.w700),),
+              child: Text("المضاف أخيراً",style: TextStyle(fontSize: 24.sp,color: mainColor,fontWeight: FontWeight.w700),),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0,),
               child: SizedBox(
-                height: 180,
+                height: 200.h,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: 5,
@@ -122,11 +125,11 @@ class MainScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: GestureDetector(
                             onTap: (){
-                              Get.to(()=>DetailsScreen());
+                              // Get.to(()=>DetailsScreen());
+                              Navigator.of(context).push(_createRoute());
                             },
                             child: Container(
-                              height: 120,
-                              width: 110,
+                              width: 120.w,
                               decoration: BoxDecoration(
                                   image: DecorationImage(
                                     fit: BoxFit.fill,
@@ -145,4 +148,21 @@ class MainScreen extends StatelessWidget {
       ),
     );
   }
+   Route _createRoute() {
+     return PageRouteBuilder(
+       pageBuilder: (context, animation, secondaryAnimation) =>  DetailsScreen(),
+       transitionsBuilder: (context, animation, secondaryAnimation, child) {
+         const begin = Offset(1.0, 1.0);
+         const end = Offset.zero;
+         const curve = Curves.ease;
+
+         var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+         return SlideTransition(
+           position: animation.drive(tween),
+           child: child,
+         );
+       },
+     );
+   }
 }

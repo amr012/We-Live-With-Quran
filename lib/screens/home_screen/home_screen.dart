@@ -20,8 +20,21 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
    int currentIndex = 0;
+   PageController _pageController = PageController();
 
-   List screen = [
+   @override
+   void initState() {
+     super.initState();
+     _pageController = PageController();
+   }
+
+   @override
+   void dispose() {
+     _pageController.dispose();
+     super.dispose();
+   }
+
+   List<Widget> screen = [
      MainScreen(),
      LibraryScreen(),
      FavouriteScreen(),
@@ -31,6 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
    checkCurrentIndex(int index) {
      setState(() {
        currentIndex = index;
+       _pageController.animateToPage(index,
+           duration: Duration(milliseconds: 500), curve: Curves.ease);
      });
    }
   @override
@@ -85,7 +100,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
               ]),
 
-          body: screen[currentIndex]
+          body: PageView(
+            controller: _pageController,
+            onPageChanged: (index) {
+              setState(() => currentIndex = index);
+            },
+            children: screen,
+          )
       ),
     );
   }}
