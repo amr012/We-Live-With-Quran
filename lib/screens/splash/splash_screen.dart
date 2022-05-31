@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:welivewithquran/screens/home_screen/home_screen.dart';
+import 'package:welivewithquran/screens/login_screen/login_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class SplashScreen extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: (){
-                Get.offAll(()=>HomeScreen());
+                Get.offAll(()=>LoginScreen());
               },
                 child: SvgPicture.asset("assets/icons/splash_button.svg")),
             SizedBox(height: 50.h,)

@@ -21,6 +21,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
    int currentIndex = 0;
    PageController _pageController = PageController();
+   GlobalKey<DrawerControllerState> drawerKey = GlobalKey<DrawerControllerState>();
+   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
    @override
    void initState() {
@@ -52,15 +54,22 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        key: _scaffoldKey,
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,
           toolbarHeight: 85.h,
           actions: [
-            // SvgPicture.asset("assets/icons/appbar_icon.svg")
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 15.0.w),
+              child: Image.asset("assets/images/app_bar_icon_new.png",width: 30.h,height: 30.h,),
+            )
           ],
-          leading: Icon(Icons.list_outlined,color: mainColor,size: 30.h),
+          leading: IconButton(icon: Icon(Icons.list_outlined,color: mainColor,size: 30.h),
+          onPressed: (){
+            _scaffoldKey.currentState!.openDrawer();
+          },),
           title: Text("لنحيا بالقران",style: TextStyle(fontSize: 24.sp,color: mainColor,
               fontWeight: FontWeight.w700),),
           centerTitle: true,
@@ -106,7 +115,30 @@ class _HomeScreenState extends State<HomeScreen> {
               setState(() => currentIndex = index);
             },
             children: screen,
-          )
+          ),
+        drawer: Drawer(
+          key: drawerKey,
+          child: Column(
+            children: [
+              SizedBox(
+                height: 30.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("لنحيا بالقران",style: TextStyle(fontSize: 24.sp,color: mainColor,
+                      fontWeight: FontWeight.w700),),
+                  Padding(
+                    padding:  EdgeInsets.symmetric(horizontal: 15.0.w),
+                    child: Image.asset("assets/images/app_bar_icon_new.png",width: 30.h,height: 30.h,),
+                  )
+
+                ],
+              ),
+
+            ],
+          ),
+        ),
       ),
     );
   }}

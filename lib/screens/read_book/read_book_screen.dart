@@ -19,8 +19,11 @@ class ReadBookScreen extends StatelessWidget {
         actions: [
           // SvgPicture.asset("assets/icons/appbar_icon.svg")
         ],
-        // leading: Icon(Icons.list_outlined,color: mainColor,size: 28),
-        title: Text("لنحيا بالقران",style: TextStyle(fontSize: 20,color: mainColor,
+        leading: IconButton(icon: Icon(Icons.arrow_back,color: mainColor,size: 30.h),
+        onPressed: (){
+          Navigator.pop(context);
+        },),
+         title: Text("لنحيا بالقران",style: TextStyle(fontSize: 24.sp,color: mainColor,
             fontWeight: FontWeight.w700),),
         centerTitle: true,
       ),

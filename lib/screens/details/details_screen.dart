@@ -28,6 +28,7 @@ class DetailsScreen extends StatelessWidget {
           elevation: 0,
           backgroundColor: Colors.transparent,
           toolbarHeight: 80,
+          leading: SizedBox(),
           actions: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -221,7 +222,7 @@ class DetailsScreen extends StatelessWidget {
                       children: [
                         Container(
                           height: 180.h,
-                          width : 150.w,
+                          width : 130.w,
                           child: Image.asset(images[index],fit: BoxFit.fill,),
                         ),
                         Text("د. فاطمة بنت عمر نصيف",style: TextStyle(color: blueColor,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomSocialContainer extends StatelessWidget {
    CustomSocialContainer({Key? key,this.onTap,this.containerColor,required this.title}) : super(key: key);
@@ -10,13 +11,13 @@ class CustomSocialContainer extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
         child: Container(
           width: double.infinity,
           color: containerColor,
-          height: 50,
+          height: 50.h,
           child: Center(child: Text(title,
-            style: TextStyle(fontSize: 18,color: Colors.white),)),
+            style: TextStyle(fontSize: 18.sp,color: Colors.white),)),
         ),
       ),
     );
