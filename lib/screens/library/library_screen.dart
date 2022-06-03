@@ -65,8 +65,8 @@ class LibraryScreen extends StatelessWidget {
                           ),
                           SizedBox(height: 5.h,),
                           Container(
-                            height: 200.h,
-                            width : 170.w,
+                            height: 210.h,
+                            width : 140.w,
                             child: Image.asset(images[index],fit: BoxFit.fill,),
                           ),
                         ],

@@ -30,6 +30,7 @@ class _MainScreenState extends State<MainScreen> {
      Image.asset("assets/images/sura_image2.png"),
    ];
 
+   int currentPage = 0;
    TextEditingController searchController = TextEditingController();
    String selectedSura = "الفاتحة";
 
@@ -216,6 +217,12 @@ class _MainScreenState extends State<MainScreen> {
             child:  CarouselSlider.builder(
               itemCount: images.length,
               options: CarouselOptions(
+                onPageChanged: (page,reason){
+                  setState(() {
+                    print(page);
+                    currentPage = page;
+                  });
+                },
                 viewportFraction: .3,
                 autoPlay: true,
                 aspectRatio: 2.0,
@@ -229,6 +236,22 @@ class _MainScreenState extends State<MainScreen> {
                 );
               },
             ),
+          ),
+        ),
+        Center(
+          child: Container(
+            height: 15.h,
+            width: 110.w,
+            child: ListView.builder(
+              itemCount: images.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context,index){
+              return Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 2.0.w),
+                child: CircleAvatar(radius: 8.h,
+                backgroundColor: currentPage == index ? mainColor : blueColor ,),
+              );
+            }),
           ),
         ),
         Padding(
